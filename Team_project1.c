@@ -22,11 +22,11 @@ int main () {
 
     Student* s = (Student*)malloc(sizeof(Student)*size);
     
-    if(s == NULL){
+    if(s == NULL){ //동적할당 실패 예외 처리
         return 1;
     }
 
-    for(int i = 0; i < size; i++){
+    for(int i = 0; i < size; i++){ // 학생 정보 입력
         printf("[%d번째 학생]\n", i+1);
         printf("이름: ");
         scanf("%s", &s[i].name);
@@ -36,11 +36,11 @@ int main () {
     }
 
     printf("\n---분석 결과---\n");
-    double total_avg = get_average(s, size);
-    find_mvp(s, size);
+    double total_avg = get_average(s, size); // 평균 계산
+    find_mvp(s, size); // 1등학생 출력
 
-    printf("전체 평균: %.2f점\n", total_avg);
-    sort(s, size);
+    printf("전체 평균: %.2f점\n", total_avg); // 
+    sort(s, size); //중앙값 출력
 
     free(s);
     return 0;
@@ -86,3 +86,4 @@ void sort(Student *students, int n){
     }
     printf("중앙값: %.2f점",middle);
 }
+
